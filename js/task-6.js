@@ -1,4 +1,3 @@
-
 const boxes = document.getElementById('boxes');
 const inputNumber = document.querySelector('input[type=number]');
 const btnDataCreate = document.querySelector('button[data-create]');
@@ -25,8 +24,11 @@ const destroyBoxes = () => {
   boxes.innerHTML = '';
 };
 
-const getRandomHexColor = () =>
-  `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
 
 btnDataCreate.addEventListener('click', () => {
   const inputNumberValue = Number(inputNumber.value.trim());
@@ -41,3 +43,4 @@ btnDataCreate.addEventListener('click', () => {
 });
 
 btnDataDestroy.addEventListener('click', destroyBoxes);
+
